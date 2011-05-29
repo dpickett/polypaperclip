@@ -1,6 +1,42 @@
 = polypaperclip
 
-Description goes here.
+An adaptation of paperclip that uses a central attachments table so that you can attach many files to a given model without adding large amounts of database columns
+
+  class Page < ActiveRecord::Base
+    has_attachment :primary_image, 
+      :styles => {:large => "300x300", :thumb => "100x100"}
+    has_attachment :secondary_image, 
+      :styles => {:large => "200x200", :thumb => "50x50"}
+  end
+  
+== Installing
+
+Polypaperclip works with Rails 3 only. 
+
+Add polypaperclip to your Gemfile. 
+
+  gem 'polypaperclip'
+  
+Generate the migration that creates the attachments table for you. The migration adds an index for optimized querying.
+
+  rails g polypaperclip:migration
+  
+== Performance Note
+
+If you're going to be referencing these attachments in massive queries, don't forget:
+
+  Page.include(:primary_image_attachment, :secondary_image_attachment)
+  
+This will eliminate n+1 query situations which can adversely impact performance.
+
+== TODO
+
+* has_many_attachments
+* validations?
+
+== Special Thanks
+
+Thanks to Coyne Design (http://www.coyne-design.com/) for granting MIT license to this gem.
 
 == Contributing to polypaperclip
  
