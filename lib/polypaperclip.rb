@@ -20,7 +20,8 @@ module Polypaperclip
       has_one "#{name}_attachment",
         :as => :attachable,
         :dependent => :destroy,
-        :class_name => "Polypaperclip::PersistedAttachment"
+        :class_name => "Polypaperclip::PersistedAttachment",
+        :conditions => "attachment_type = '#{name}'"
       
       define_method name do |*args|
         a = paperclip_attachment_for(name)
@@ -42,8 +43,8 @@ module Polypaperclip
     end
 
     protected
+    #initialize a polypaperclip model if a configuration hasn't already been loaded
     def initialize_polypaperclip
-      #initialize a polypaperclip model
       if polypaperclip_definitions.nil?
         has_many_attachments_association
       
