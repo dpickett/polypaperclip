@@ -1,14 +1,16 @@
 source "http://rubygems.org"
-# Add dependencies required to use your gem here.
-# Example:
-#   gem "activesupport", ">= 2.3.5"
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
+gem "rake", "0.8.7"
+gem "paperclip", "~> 2.3"
+
+gem "rails", "~>3.0.0"
+
 group :development do
   gem "rspec", "~> 2.3.0"
   gem "yard", "~> 0.6.0"
   gem "bundler", "~> 1.0.0"
   gem "jeweler", "~> 1.5.2"
+  gem "sqlite3-ruby", "~>1.3.0"
   gem "rcov", ">= 0"
+  gem "mocha"
 end

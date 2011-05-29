@@ -40,3 +40,6 @@ pkg
 #
 # For vim:
 #*.swp
+
+spec/debug.log
+spec/public
