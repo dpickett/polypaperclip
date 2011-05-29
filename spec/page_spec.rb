@@ -28,6 +28,21 @@ describe "Page" do
     subject.primary_image_attachment.should_not be_persisted
   end
   
+  it "sets the content type on the associated attachment" do
+    attach_primary_image
+    subject.primary_image_attachment.attachment_content_type.should_not be_nil
+  end
+  
+  it "sets the file size on the associated attachment" do
+    attach_primary_image
+    subject.primary_image_attachment.attachment_file_size.should_not be_nil
+  end
+  
+  it "sets the attachment updated at on the associated attachment" do
+    attach_primary_image
+    subject.primary_image_attachment.attachment_updated_at.should_not be_nil
+  end
+  
   PRIMARY_IMAGE_PATH = File.dirname(__FILE__) + "/fixtures/rails.png"
   def attach_primary_image
     subject.primary_image = File.open(PRIMARY_IMAGE_PATH)
