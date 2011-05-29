@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{polypaperclip}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Pickett"]
@@ -25,12 +25,13 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/generators/polypaperclip_migration_generator.rb",
+    "lib/generators/migration_generator.rb",
     "lib/generators/templates/migration.erb",
     "lib/polypaperclip.rb",
     "lib/polypaperclip/attachment.rb",
     "lib/polypaperclip/persisted_attachment.rb",
     "lib/polypaperclip/railtie.rb",
+    "polypaperclip.gemspec",
     "rails/init.rb",
     "spec/database.yml",
     "spec/fixtures/rails.png",
