@@ -25,7 +25,7 @@ RSpec.configure do |config|
       table.string :attachable_type, :null => false
       table.string :attachment_type, :null => false
       table.string :attachment_file_name, :null => false
-      table.string :attachment_content_type
+      table.string :attachment_content_type, :null => false
       table.integer :attachment_file_size, :null => false
       table.datetime :attachment_updated_at, :null => false
     end

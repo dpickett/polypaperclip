@@ -1,0 +1,21 @@
+class <%= migration_class_name %> < ActiveRecord::Migration
+  
+  def self.up
+    create_table :attachments do |table|
+      table.integer :attachable_id, :null => false
+      table.string :attachable_type, :null => false
+      table.string :attachment_type, :null => false
+      table.string :attachment_file_name, :null => false
+      table.string :attachment_content_type, :null => false
+      table.integer :attachment_file_size, :null => false
+      table.datetime :attachment_updated_at, :null => false
+    end
+    
+    add_index :attachments, [:attachable_id, :attachable_type, :attachment_type]
+  end
+
+  def self.down
+    remove_table :attachments
+  end
+  
+end

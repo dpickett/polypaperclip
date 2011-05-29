@@ -9,6 +9,10 @@ module Polypaperclip
         ActiveRecord::Base.extend(Polypaperclip::ClassMethods)
       end
     end
+    
+    generators do
+      require "generator/migration"
+    end
   end
 end
 
