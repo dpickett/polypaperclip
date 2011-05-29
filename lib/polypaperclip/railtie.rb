@@ -11,7 +11,7 @@ module Polypaperclip
     end
     
     generators do
-      require "generator/migration"
+      require "generators/migration_generator"
     end
   end
 end

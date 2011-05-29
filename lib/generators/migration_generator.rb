@@ -1,7 +1,7 @@
 module Polypaperclip
   module Generators
     #shamelessly addapted from Sutto's excellent slugged library: https://github.com/Sutto/slugged
-    class PolypaperclipMigrationGenerator < Rails::Generators::NamedBase
+    class MigrationGenerator < Rails::Generators::Base
       include Rails::Generators::Migration
       
       def self.source_root
