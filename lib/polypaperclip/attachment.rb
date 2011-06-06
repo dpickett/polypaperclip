@@ -22,6 +22,7 @@ module Polypaperclip
     def build_instance
       @instance ||= @poly_instance.send("build_#{@poly_name}_attachment")
       @instance.attachment_type = name
+      @instance.attachable = @poly_instance
       @instance
     end
 

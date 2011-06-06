@@ -6,6 +6,7 @@ gem "paperclip", "~> 2.3"
 gem "rails", "~>3.0.0"
 
 group :development do
+  gem "ruby-debug"
   gem "rspec", "~> 2.3.0"
   gem "yard", "~> 0.6.0"
   gem "bundler", "~> 1.0.0"

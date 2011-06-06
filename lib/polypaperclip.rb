@@ -46,10 +46,10 @@ module Polypaperclip
     #initialize a polypaperclip model if a configuration hasn't already been loaded
     def initialize_polypaperclip
       if polypaperclip_definitions.nil?
-        has_many_attachments_association
-      
         after_save :save_attached_files
         before_destroy :destroy_attached_files
+        
+        has_many_attachments_association
       
         write_inheritable_attribute(:polypaperclip_definitions, {})
         
@@ -62,6 +62,7 @@ module Polypaperclip
     def has_many_attachments_association
       unless self.respond_to?(:attachments)
         has_many :attachments,
+          :class_name => "Polypaperclip::PersistedAttachment",
           :as => :attachable
       end
     end
@@ -72,6 +73,17 @@ module Polypaperclip
     def each_attachment
       self.class.polypaperclip_definitions.each do |name, definition|
         yield(name, paperclip_attachment_for(name))
+      end
+    end
+    
+    def save_attached_files
+      #premptively save each attachment
+      Paperclip.log("Saving attachments.")
+      each_attachment do |name, attachment|
+        if attachment && attachment.instance
+          attachment.instance.save
+          attachment.send(:save)
+        end
       end
     end
 

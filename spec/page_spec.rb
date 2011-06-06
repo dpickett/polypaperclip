@@ -43,6 +43,14 @@ describe "Page" do
     subject.primary_image_attachment.attachment_updated_at.should_not be_nil
   end
   
+  it "should set the appropriate id for the image" do
+    attach_primary_image
+    subject.save!
+    subject.primary_image_attachment.id.should_not be_nil
+    subject.primary_image.instance.should_not be_nil
+    subject.primary_image.path.should =~ /#{subject.primary_image_attachment.id}/
+  end
+  
   PRIMARY_IMAGE_PATH = File.dirname(__FILE__) + "/fixtures/rails.png"
   def attach_primary_image
     subject.primary_image = File.open(PRIMARY_IMAGE_PATH)
