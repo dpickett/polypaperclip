@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{polypaperclip}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Pickett"]
-  s.date = %q{2011-05-29}
+  s.date = %q{2011-06-06}
   s.description = %q{hacks paperclip to have a single repo of attachments}
   s.email = %q{dpickett@enlightsolutions.com}
   s.extra_rdoc_files = [
@@ -55,6 +55,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rake>, ["= 0.8.7"])
       s.add_runtime_dependency(%q<paperclip>, ["~> 2.3"])
       s.add_runtime_dependency(%q<rails>, ["~> 3.0.0"])
+      s.add_development_dependency(%q<ruby-debug>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -66,6 +67,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake>, ["= 0.8.7"])
       s.add_dependency(%q<paperclip>, ["~> 2.3"])
       s.add_dependency(%q<rails>, ["~> 3.0.0"])
+      s.add_dependency(%q<ruby-debug>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -78,6 +80,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>, ["= 0.8.7"])
     s.add_dependency(%q<paperclip>, ["~> 2.3"])
     s.add_dependency(%q<rails>, ["~> 3.0.0"])
+    s.add_dependency(%q<ruby-debug>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
     s.add_dependency(%q<yard>, ["~> 0.6.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
