@@ -14,7 +14,7 @@ module Polypaperclip
     end
     
     def assign(uploaded_file)
-      build_instance
+      build_instance if @instance.nil? #we want to replace
       super
     end
     
