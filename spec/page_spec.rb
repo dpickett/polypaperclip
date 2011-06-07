@@ -43,12 +43,19 @@ describe "Page" do
     subject.primary_image_attachment.attachment_updated_at.should_not be_nil
   end
   
-  it "should set the appropriate id for the image" do
+  it "sets the appropriate id for the image" do
     attach_primary_image
     subject.save!
     subject.primary_image_attachment.id.should_not be_nil
     subject.primary_image.instance.should_not be_nil
     subject.primary_image.path.should =~ /#{subject.primary_image_attachment.id}/
+  end
+  
+  it "sets primary_image for the attachment_type" do
+    attach_primary_image
+    subject.save!
+    subject.primary_image.url.should_not be_nil
+    subject.primary_image_attachment.attachment_type.should eql("primary_image")
   end
   
   PRIMARY_IMAGE_PATH = File.dirname(__FILE__) + "/fixtures/rails.png"
