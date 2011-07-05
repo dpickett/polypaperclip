@@ -20,6 +20,27 @@ Add polypaperclip to your Gemfile.
 Generate the migration that creates the attachments table for you. The migration adds an index for optimized querying.
 
   rails g polypaperclip:migration
+
+Create config/paperclip.yml to override default paperclip options for different environments
+Credit: jspies http://www.jonathanspies.com/posts/6-Using-yaml-to-configure-default-options-for-Paperclip
+
+	development:
+	  storage: s3
+	  bucket: bucket-name
+	  s3_credentials: "./config/s3.yml"
+	  path: "public:url"
+
+	test:
+	  storage: s3
+	  bucket: bucket-name
+	  s3_credentials: "./config/s3.yml"
+	  path: "public:url"
+  
+	production:
+	  storage: s3
+	  bucket: bucket-name
+	  s3_credentials: "./config/s3.yml"
+	  path: "public:url"
   
 == Performance Note
 
