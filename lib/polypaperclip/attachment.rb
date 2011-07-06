@@ -9,6 +9,8 @@ module Polypaperclip
         :url                   => "/system/:attachment/:id/:style/:filename",
         :path                  => ":rails_root/public:url",
         :styles                => {},
+        :only_process          => [],
+        :processors            => [:thumbnail],
         :convert_options       => {},
         :default_url           => "/:attachment/:style/missing.png",
         :default_style         => :original,
@@ -16,7 +18,8 @@ module Polypaperclip
         :use_timestamp         => true,
         :use_default_time_zone => true,
         :hash_digest           => "SHA1",
-        :hash_data             => ":class/:attachment/:id/:style/:updated_at"
+        :hash_data             => ":class/:attachment/:id/:style/:updated_at",
+        :preserve_files        => false
       }
 
       if defined?(RAILS_ROOT) and File.exists?("#{RAILS_ROOT}/config/paperclip.yml")
