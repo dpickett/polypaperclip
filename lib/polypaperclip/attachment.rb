@@ -20,7 +20,7 @@ module Polypaperclip
       }
 
       if defined?(RAILS_ROOT) and File.exists?("#{RAILS_ROOT}/config/paperclip.yml")
-        @default_options.merge!(YAML.load_file("#{RAILS_ROOT}/config/paperclip.yml")[RAILS_ENV].symbolize_keys)
+        @default_options.merge!(YAML.load_file("#{RAILS_ROOT}/config/paperclip.yml")[RAILS_ENV].symbolize_keys) rescue nil
       end
     end
     
