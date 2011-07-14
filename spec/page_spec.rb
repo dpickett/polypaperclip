@@ -57,7 +57,26 @@ describe "Page" do
     subject.primary_image.url.should_not be_nil
     subject.primary_image_attachment.attachment_type.should eql("primary_image")
   end
-  
+
+  it "destroys without error" do
+    attach_primary_image
+    subject.save!
+    lambda { subject.destroy }.should_not raise_error
+  end
+
+  it "destroys without error if I don't have an attachment" do
+    attach_primary_image
+    subject.save!
+    lambda { subject.destroy }.should_not raise_error
+  end
+
+  it "removes the association" do
+    attach_primary_image
+    subject.save!
+    subject.destroy
+    subject.attachments.count.should eql(0)
+  end
+
   PRIMARY_IMAGE_PATH = File.dirname(__FILE__) + "/fixtures/rails.png"
   def attach_primary_image
     subject.primary_image = File.open(PRIMARY_IMAGE_PATH)

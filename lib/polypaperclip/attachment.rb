@@ -18,6 +18,14 @@ module Polypaperclip
       build_instance if @instance.nil? #we want to replace
       super
     end
+
+    def instance_read(attr)
+      if @instance.nil?
+        nil
+      else
+        super
+      end
+    end
     
     protected
     def build_instance

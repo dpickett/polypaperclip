@@ -72,7 +72,7 @@ module Polypaperclip
     #we override Paperclip's each_attachment so that we proxy through the attachments model
     def each_attachment
       self.class.polypaperclip_definitions.each do |name, definition|
-        yield(name, paperclip_attachment_for(name)) rescue nil
+        yield(name, paperclip_attachment_for(name))
       end
     end
     
