@@ -21,12 +21,16 @@ module Polypaperclip
         :hash_data             => ":class/:attachment/:id/:style/:updated_at"
       }
 
-      if defined?(RAILS_ROOT) and File.exists?("#{RAILS_ROOT}/config/paperclip.yml")
-        @default_options.merge!(YAML.load_file("#{RAILS_ROOT}/config/paperclip.yml")[RAILS_ENV].symbolize_keys)
+      if defined?(Rails) and File.exists?("#{Rails.root}/config/paperclip.yml")
+        @default_options.merge!(YAML.load_file("#{Rails.root}/config/paperclip.yml")[Rails.env].symbolize_keys)
       end
     end
     
     def initialize(name, instance, options = {})
+      options = {} if options.nil?
+      
+      #we must instantiate the default options
+      self.class.default_options
       super
       
       #retain the actual object in the attachment instance
