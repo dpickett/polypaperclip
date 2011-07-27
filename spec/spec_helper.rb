@@ -41,6 +41,9 @@ RSpec.configure do |config|
         :styles => {:large => "200x200", :thumb => "50x50"}
     end
     
+    class SuperPage < Page
+    end
+    
     Object.const_set(:Rails, stub('Rails', :root => File.dirname(__FILE__), :env => 'test'))
   end
 end
