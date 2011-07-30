@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rake", "0.8.7"
+gem "rake", "~> 0.8.7"
 gem "paperclip", "~> 2.3"
 
 gem "rails", "~>3.0.0"
