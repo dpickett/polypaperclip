@@ -110,7 +110,7 @@ DEPENDENCIES
   mocha
   paperclip (~> 2.3)
   rails (~> 3.0.0)
-  rake (= 0.8.7)
+  rake (~> 0.8.7)
   rcov
   rspec (~> 2.3.0)
   ruby-debug19
