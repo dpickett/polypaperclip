@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.1.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Dan Pickett"]
-  s.date = %q{2011-07-27}
+  s.authors = [%q{Dan Pickett}]
+  s.date = %q{2011-07-30}
   s.description = %q{hacks paperclip to have a single repo of attachments}
   s.email = %q{dpickett@enlightsolutions.com}
   s.extra_rdoc_files = [
@@ -40,9 +40,9 @@ Gem::Specification.new do |s|
     "spec/super_page_spec.rb"
   ]
   s.homepage = %q{http://github.com/dpickett/polypaperclip}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{Polymorphic attachments with paperclip}
   s.test_files = [
     "spec/page_spec.rb",
